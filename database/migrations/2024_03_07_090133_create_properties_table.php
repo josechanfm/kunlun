@@ -13,10 +13,17 @@ return new class extends Migration
     {
         Schema::create('properties', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('estate_id');
+            $table->integer('block')->nullable();
+            $table->string('registration')->nullable();
+            $table->string('contact')->nullable();
+            $table->string('owner')->nullable();
+            $table->integer('rooms')->nullable();
+            $table->string('floor')->nullable();
+            $table->integer('unit')->nullable();
             $table->string('code')->nullable();
-            $table->string('name');
-            $table->string('zone')->nullable();
             $table->string('address')->nullable();
+            $table->date('resident at')->nullable();
             $table->text('description')->nullable();
             $table->text('remark')->nullable();
             $table->timestamps();
