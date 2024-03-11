@@ -32,6 +32,8 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return Inertia::render('Dashboard');
     })->name('dashboard');
+    Route::resource('admin/estates',App\Http\Controllers\Admin\EstateController::class)->names('admin.estates');
+    Route::resource('admin/{estate|property}/parkades',App\Http\Controllers\Admin\ParkadeController::class)->names('admin.estate.parkades');
     Route::resource('admin/properties',App\Http\Controllers\Admin\PropertyController::class)->names('admin.properties');
 });
 

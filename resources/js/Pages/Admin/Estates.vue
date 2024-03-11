@@ -11,16 +11,16 @@
             <a-button type="primary" @click="createRecord()">Add</a-button>
         </div>
         <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
-          <a-table :dataSource="properties" :columns="columns">
+          <a-table :dataSource="estates" :columns="columns">
             <template #headerCell="{ column }">
               {{column.title}}
             </template>
             <template #bodyCell="{ column, text, record, index }">
               <template v-if="column.dataIndex == 'operation'">
+                <inertia-link :href="route('admin.properties.index')">
+                  <a-button >Properties</a-button>
+                </inertia-link>
                 <a-button @click="editRecord(record)">Edit</a-button>
-              </template>
-              <template v-else-if="column.dataIndex == 'estate_id'">
-                {{record.estate.name}}
               </template>
               <template v-else>
                 {{ record[column.dataIndex] }}
@@ -65,7 +65,7 @@ export default {
   components: {
     AdminLayout,
   },
-  props: ["properties"],
+  props: ["estates"],
   data() {
     return {
       modal: {
@@ -76,17 +76,17 @@ export default {
       },
       columns: [
         {
+          title: "區域",
+          dataIndex: "name",
+        },{
           title: "小區",
-          dataIndex: "estate_id",
+          dataIndex: "region",
         },{
-          title: "座別",
-          dataIndex: "block",
+          title: "座數",
+          dataIndex: "blocks",
         },{
-          title: "樓層",
-          dataIndex: "floor",
-        },{
-          title: "單位",
-          dataIndex: "unit",
+          title: "單位數",
+          dataIndex: "units",
         },{
           title: "操作",
           dataIndex: "operation",

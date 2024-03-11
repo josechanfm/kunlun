@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('owner')->nullable();
             $table->integer('rooms')->nullable();
             $table->string('floor')->nullable();
-            $table->integer('unit')->nullable();
+            $table->string('unit')->nullable();
             $table->string('code')->nullable();
             $table->string('address')->nullable();
             $table->date('resident at')->nullable();

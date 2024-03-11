@@ -4,20 +4,16 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Inertia\Inertia;
-use App\Models\Property;
+use App\Models\Estate;
 
-class PropertyController extends Controller
+class ParkadeController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Estate $estate)
     {
-        //dd(Property::all());
-        return Inertia::render('Admin/Properties',[
-            'properties'=>Property::with('estate')->get()
-        ]);
+        //
     }
 
     /**

@@ -17,7 +17,6 @@ return new class extends Migration
             $table->string('region')->nullable();
             $table->string('address')->nullable();
             $table->integer('area')->nullable();
-            $table->integer('blocks')->nullable();
             $table->integer('units')->nullable();
             $table->string('developer')->nullable();
             $table->text('remark')->nullable();
